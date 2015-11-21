@@ -73,7 +73,9 @@ angular.module('angular-advanced-searchbox', [])
                         updateModel('change', 'query', query);
                     };
 
-                    $scope.enterEditMode = function(index) {
+                    $scope.enterEditMode = function(index, event) {
+                        if(event) 
+                            event.stopPropagation();
                         if (index === undefined)
                             return;
 
