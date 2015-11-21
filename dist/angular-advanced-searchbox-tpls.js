@@ -17,7 +17,8 @@ angular.module('angular-advanced-searchbox', [])
             scope: {
                 model: '=ngModel',
                 parameters: '=',
-                placeholder: '@'
+                placeholder: '@',
+                searchCallback: '&'
             },
             replace: true,
             templateUrl: function(elem, attr) {
@@ -239,7 +240,7 @@ angular.module('angular-advanced-searchbox', [])
                                 else
                                     $scope.model[change.key] = change.value;
                             });
-
+                            $scope.searchCallback();
                             changeBuffer.length = 0;
                         }, 500);
                     }
