@@ -119,7 +119,8 @@ angular.module('angular-advanced-searchbox', [])
                                 name: searchParam.name,
                                 placeholder: searchParam.placeholder,
                                 value: value || '',
-                                editMode: enterEditModel
+                                editMode: enterEditModel,
+                                options: searchParam.options || []
                             }
                         );
 
@@ -152,6 +153,9 @@ angular.module('angular-advanced-searchbox', [])
                             $scope.enterEditMode(currentIndex - 1);
                         } else if ($scope.searchParams.length > 0) {
                             $scope.enterEditMode($scope.searchParams.length - 1);
+                        }
+                        else {
+                            $scope.setSearchFocus = true;
                         }
                     };
 
