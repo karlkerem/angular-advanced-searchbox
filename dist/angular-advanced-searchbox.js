@@ -140,8 +140,10 @@ angular.module('angular-advanced-searchbox', [])
                     $scope.removeAll = function() {
                         $scope.searchParams.length = 0;
                         $scope.searchQuery = '';
-                        
                         $scope.model = {};
+                        $timeout(function() {
+                            $scope.searchCallback();
+                        });
                     };
 
                     $scope.editPrevious = function(currentIndex) {
